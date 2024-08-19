@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .basic, .desc {
+            margin-bottom: 10px;
+        }
+        .transactions {
+            margin-top: 20px;
+        }
+        .transaction {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .transaction .left, .transaction .right {
+            display: flex;
+            flex-direction: column;
+        }
+        .transaction .price.red {
+            color: red;
+        }
+        .transaction .price.gr {
+            color: green;
+        }
+        *{
+  box-sizing: border-box;
+}
+body{
+
+  background-color:  #17181f;
+  color: #ddd;
+}
+main{
+  max-width: 360px;
+  margin: 30px auto;
+
+}
+h1{
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+form{
+
+  margin-top: 20px;
+}
+form input{
+
+  width: 100%;
+  background-color: transparent;
+  color: #ddd;
+  border: 2px solid #30313d;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+form input[type="datetime-local"]{
+  color: #777;
+}
+form button{
+  width: 100%;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 5px;
+}
+form div.basic{
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+div.trancations{
+  margin-top: 10px;
+  
+}
+div.transaction{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-top: 1px solid #30313d;
+}
+div.transaction:first-child{
+  border-top: 0;
+}
+div.transaction div.name{
+  font-size: 1.2rem;
+}
+div.transaction div.description{
+  font-size: 0.7rem;
+  color: #888;
+}
+div.right{
+  text-align: right;
+}
+div.price.gr{
+ color: #1c1;
+}
+div.price.red{
+  color: rgb(204, 17, 17);
+ }
+ div.transaction div.datetime{
+  font-size: 0.7rem;
+  color: #888;
+ }
+    </style>
+</head>
+<body>
+    <div>
+        <main>
+            <h1>
+                $400<span>.00 </span>
+            </h1>
+            <form action="/read" method="post">
+                <div class="basic">
+                    <input type="text" name="product" placeholder="Product" />
+                    <input type="datetime-local" name="date" />
+                </div>
+                <div class="desc">
+                    <input type="text" name="desc" placeholder="Description" />
+                    <input type="text" name="price" placeholder="Price" />
+                </div>
+                <button type="submit">Add New Transaction</button>
+            </form>
+            
+            <% moneys.forEach(function(money) { %>
+                <div class="transactions">
+                    <div class="transaction">
+                        <div class="left">
+                            <div class="name"><%= money.product %></div>
+                            <div class="description"><%= money.desc %></div>
+                        </div>
+                        <div class="right">
+                            <div class="price red"><%= money.price %></div>
+                            <div class="datetime"><%= money.Date %></div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+            <form action="/read" method="post">
+                <div class="basic">
+                    <input type="text" name="product" placeholder="Product" />
+                    <input type="datetime-local" name="date" />
+                </div>
+                <div class="desc">
+                    <input type="text" name="desc" placeholder="Description" />
+                    <input type="text" name="price" placeholder="Price" />
+                </div>
+                <button type="submit">Add New Transaction</button>
+            </form>
+            
+        </main>
+    </div>
+</body>
+</html>
